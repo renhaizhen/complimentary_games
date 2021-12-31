@@ -1,0 +1,25 @@
+{
+  "name": "complimentary_games",
+  "version": "1.0.0",
+  "description": "complimentary games",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/renhaizhen/complimentary_games.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/renhaizhen/complimentary_games/issues"
+  },
+  "homepage": "https://github.com/renhaizhen/complimentary_games#readme",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "dingtalk-robot-sender": "^1.2.0",
+    "lodash": "^4.17.21"
+  }
+}
