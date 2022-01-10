@@ -8,17 +8,23 @@ async function transformEpicDatas(datas){
             //keyImages[2]['url']
             //promotions['promotionalOffers']['promotionalOffers']['startDate']||['endDate']
             const { title, keyImages ,promotions } = l;
+            // console.log(title, keyImages ,promotions,'....')
             const img = keyImages[0]['url'];
-            if(promotions&&promotions['promotionalOffers']){
-                console.log(promotions,'title',title)
+            if((promotions&&promotions!==null&&promotions['promotionalOffers'].length>0&&promotions['promotionalOffers']!==[])){
+                console.log(promotions,'promotionalOffers',title)
                 const startDate = promotions['promotionalOffers'][0]['promotionalOffers'][0]['startDate'];
                 const endDate = promotions['promotionalOffers'][0]['promotionalOffers'][0]['endDate'];
                 const o = {title,img,startDate,endDate};
                 handle_show_datas.push(o)
+            }else if(promotions&&promotions['upcomingPromotionalOffers'].length>0){
+                console.log(promotions,'upcomingPromotionalOffers',title)
+                const startDate = promotions['upcomingPromotionalOffers'][0]['promotionalOffers'][0]['startDate'];
+                const endDate = promotions['upcomingPromotionalOffers'][0]['promotionalOffers'][0]['endDate'];
+                const o = {title,img,startDate,endDate};
+                handle_show_datas.push(o)
             }
-
-            const o = {title,img};
-            handle_all_datas.push(o);
+            // const o = {title,img};
+            // handle_all_datas.push(o);
             
         })
     }
@@ -27,7 +33,7 @@ async function transformEpicDatas(datas){
 
 async function transformDingTalkEpic(datas){
     if(datas&&datas.length){
-        var staticT = `#### [广播]🔥 now ||future given\n>`;
+        var staticT = `#### [广播] 🔥 now || future given\n>`;
         var handleData = staticT;
         forEach(datas,l=>{
             if(l['startDate']||l['endDate']){

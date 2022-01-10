@@ -15,7 +15,8 @@ async function getDatas(){
     if(res.data&&res.data.Catalog){
         const row_datas = res.data.Catalog.searchStore.elements;
         const handle_datas = await transformEpicDatas(row_datas);
-        if(handle_datas&&handle_datas['all_games']){
+        console.log(handle_datas,'handle_datas')
+        if(handle_datas&&handle_datas['show_games']){
             const { show_games} = handle_datas;
             // const all_board = await transformDingTalkEpic(all_games);
             const show_board = await transformDingTalkEpic(show_games);
